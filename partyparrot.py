@@ -7,11 +7,11 @@ import os
 from all_characters import ALL_CHARACTERS
 
 PARTY_PARROTS = [
-    ':partyparrot:',
-    ':rightparrot:',
-    ':middleparrot:',
-    ':boredparrot:',
-    ':shuffleparrot:'
+    ':party_parrot:',
+    ':slow_parrot:',
+    ':stable_parrot:',
+    ':bored_parrot:',
+    ':shuffle_parrot:'
 ]
 
 EN_SPACE = '\u2002'
