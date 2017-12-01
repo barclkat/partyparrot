@@ -64,7 +64,7 @@ def make_slack_compatible(partyparrot_string):
     return out
 
 
-def convert_str_to_emoji(s, emojis=PARTY_PARROTS, space=' ', force=False):
+def convert_str_to_emoji(s, emojis=PARTY_PARROTS, space=' ', force=False, slack=False):
 
     emoji_iterator = itertools.cycle(emojis)
 
@@ -75,6 +75,8 @@ def convert_str_to_emoji(s, emojis=PARTY_PARROTS, space=' ', force=False):
         output_string += '\n\n'
     if force:
         post_text_to_slack(output_string)
+    if slack:
+        output_string = make_slack_compatible(output_string)
     return output_string
 
 
@@ -83,6 +85,7 @@ if __name__ == '__main__':
     parser.add_argument('text', help='The text to emoji-fy')
     parser.add_argument('-e', '--emojis', nargs='+',
                         help='List of emojis to use.', default=PARTY_PARROTS)
+    parser.add_argument('-sl', '--slack', action='store_true', help='apply slack formatting', default=True)
     parser.add_argument('-f', '--force', action='store_true',
                         help='automatically post to the slack of your choosing', default=False)
     parser.add_argument('-s', '--space', default='      ')
@@ -93,7 +96,8 @@ if __name__ == '__main__':
         out_str = convert_str_to_emoji(args.text,
                                        emojis=args.emojis,
                                        space=args.space,
-                                       force=args.force
+                                       force=args.force,
+                                       slack=args.slack
                                        )
         print(out_str)
     except ValueError as e:
