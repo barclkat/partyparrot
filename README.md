@@ -14,6 +14,9 @@ Just pass the script a string of your choosing.
 python partyparrot.py "HELLO" | pbcopy
 ```
 
+## Slack Formatting
+Use the `--slack` flag to prevent Slack from truncating leading spaces and ruining your art.
+
 ## Custom Emoji List
 
 Use the `-e` or `--emojis` flag to use a custom list of emojis.
