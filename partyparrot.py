@@ -85,7 +85,7 @@ if __name__ == '__main__':
                         help='List of emojis to use.', default=PARTY_PARROTS)
     parser.add_argument('-f', '--force', action='store_true',
                         help='automatically post to the slack of your choosing', default=False)
-    parser.add_argument('-s', '--space', default='        ')
+    parser.add_argument('-s', '--space', default='      ')
 
     args = parser.parse_args()
 
